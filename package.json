@@ -1,0 +1,23 @@
+{
+  "name": "manager-tools",
+  "version": "1.0.0",
+  "description": "Sistema de Controle de Ferramentas",
+  "main": "oficina.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josemateuss/manager_tools.git"
+  },
+  "author": "José Mateus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josemateuss/manager_tools/issues"
+  },
+  "homepage": "https://github.com/josemateuss/manager_tools#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
+  }
+}
