@@ -8,16 +8,24 @@ são processados pela engine e devolvem arquivos html */
 
 // get do Express serve para passar a rota da url
 app.get('/', function(request, response){
-	response.send("<html><body>Sistema de Controle de Ferramentas</body></html>")
+	response.render("home/index")
 });
 
-app.get('/estoque', function(request, response){ 
-	response.send("<html><body>Estoque de Ferramentas</body></html>")
+app.get('/cadastrar-ferramenta', function(request, response){
+	response.render("admin/form_add_ferramentas")
+});
+
+app.get('/ferramentas', function(request, response){ 
+	response.render("ferramentas/ferramentas")
 });
 
 app.get('/alicates', function(request, response){ 
 	// render do ejs para renderizar a página em HTML
 	response.render("categoria/alicates")
+});
+
+app.get('/estoque', function(request, response){ 
+	response.send("<html><body>Estoque de Ferramentas</body></html>")
 });
 
 // escutando na porta 3000
