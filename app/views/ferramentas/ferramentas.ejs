@@ -8,5 +8,21 @@
 
 		<h1>Ferramentas</h1>
 
+		<table>
+			<tr>
+				<td>Id</td>
+				<td>Nome</td>
+				<td>Descrição</td>
+			</tr>
+
+			<% for(var i=0; i < ferramentas.length; i++) { %>
+			<tr>
+				<td><%= ferramentas[i].id_ferramenta %></td>
+				<td><%= ferramentas[i].nome_ferramenta %></td>
+				<td><%= ferramentas[i].descricao_ferramenta %></td>
+			</tr>
+			<% } %>
+		</table>
+
 	</body>
 </html>
