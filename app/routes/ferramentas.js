@@ -1,16 +1,18 @@
-module.exports = function(app){
+//var dbConnection = require('../../settings/dbConnection');
 
-	app.get('/ferramentas', function(request, response){ 
-		var mysql = require('mysql');
-		var connection = mysql.createConnection({
-			host : 'localhost',
-			user : 'root',
-			password : 'root',
-			database : 'manager_tools'
-		});
+module.exports = function(application){
 
-		connection.query('select * from ferramentas;', function(error, result){
+	application.get('/ferramentas', function(request, response){ 
+
+		// como a função recebe application como parâmetro, é possivel acessar a conexão com o BD
+		var connection = application.settings.dbConnection(); //referência que faz a conexão com o banco
+		// acessando a conexão com o BD pelo caminho da aplicação
+		var ferramentasModel = application.app.models.ferramentasModel;
+
+		ferramentasModel.getFerramentas(connection, function(error, result){
 			response.render("ferramentas/ferramentas", {ferramentas : result})
 		});
+
+		//connection.query('select * from ferramentas;', 
 	});
 };

@@ -1,6 +1,6 @@
-module.exports = function(app){ 
+module.exports = function(application){ 
 	// get do Express serve para passar a rota da url
-	app.get('/', function(request, response){
+	application.get('/', function(request, response){
 		response.render("home/index")
 	});
 };

@@ -1,12 +1,19 @@
 var express = require('express');
-var app = express();
+var consign = require('consign');
 
+var application = express();
 // set serve para avisar pro Express que agora o engine view é feito pelo módulo EJS
-app.set('view engine', 'ejs');
+application.set('view engine', 'ejs');
 /* com os arquivos que estão na pasta views, escritos em .ejs com javascript, 
 são processados pela engine e devolvem arquivos html */
+application.set('views', './app/views')
 
-app.set('views', './app/views')
+// utilizando o consign para o auto load de rotas e módulos no projeto
+consign()
+	.include('app/routes')
+	.then('settings/dbConnection.js')
+	.then('app/models')
+	.into(application);
 
 // exportando o servidor
-module.exports = app;
+module.exports = application;
