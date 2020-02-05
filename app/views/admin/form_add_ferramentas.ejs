@@ -2,11 +2,24 @@
 	<html lang="pt-br">
 		<head>
 			<meta charset="utf-8"/>
-			<title>Formul�rio de cadastro de Ferramentas</title>
+			<title>Formuláio de Registro de Ferramentas</title>
 		</head>
 	<body>
 
-		<h1>Adicionar Ferramenta</h1>
+		<h1>Registrar Ferramenta</h1>
+		<br>
+
+		<form action="/ferramentas/salvar" method="post">
+			<label>Nome da Ferramenta: </label>
+			<input type="text" id="nome" name="nome" placeholder="Nome da Ferramenta">
+			<br>
+			<label>Descrição da Ferramenta: </label>
+			<!-- <textarea id="descricao" name="descricao" rows="1" cols="5"></textarea> -->
+			<input type="text" id="descricao" name="descricao" placeholder="Descrição da Ferramenta">
+			<br>
+			<input type="submit" value="salvar">
+		</form>
+
 
 	</body>
 </html>
