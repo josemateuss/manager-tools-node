@@ -7,11 +7,12 @@ module.exports = function(application){
 		var ferramenta = request.body;
 
 		var connection = application.settings.dbConnection(); 
-		var ferramentasModel = application.app.models.ferramentasModel;
+		var FerramentasDAO = new application.app.models.FerramentasDAO(connection);
 
-		ferramentasModel.salvarFerramenta(ferramenta, connection, function(error, result){
-			//response.redirect('/ferramenta');
-			response.render("ferramentas/ferramentas", {ferramentas : result})
+		FerramentasDAO.salvarFerramenta(ferramenta, function(error, result){
+			response.redirect('/ferramentas');
+			//response.send(error);
+			//response.render("ferramentas/ferramentas", {ferramentas : result})
 		});
 	});
 };

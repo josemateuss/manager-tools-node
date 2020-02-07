@@ -7,9 +7,9 @@ module.exports = function(application){
 		// como a função recebe application como parâmetro, é possivel acessar a conexão com o BD
 		var connection = application.settings.dbConnection(); //referência que faz a conexão com o banco
 		// acessando a conexão com o BD pelo caminho da aplicação
-		var ferramentasModel = application.app.models.ferramentasModel;
+		var FerramentasDAO = new application.app.models.FerramentasDAO(connection);
 
-		ferramentasModel.getFerramentas(connection, function(error, result){
+		FerramentasDAO.getFerramentas(function(error, result){
 			response.render("ferramentas/ferramentas", {ferramentas : result})
 		});
 
