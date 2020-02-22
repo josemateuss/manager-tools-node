@@ -9,4 +9,4 @@ Sistema para gerenciar o estoque e uso de ferramentas de uma oficina mecânica, 
 * Consign
 * Body-Parser
 
-José Mateus Pereira Santos – [Linkedin](https://www.linkedin.com//in/josé-mateus-937560106/) – mateus.18.santos@gmail.com
+José Mateus Pereira Santos – [Linkedin](https://www.linkedin.com/in/josé-mateus-937560106/) – mateus.18.santos@gmail.com
