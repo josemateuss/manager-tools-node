@@ -1,6 +1,4 @@
-show databases;
 use manager_tools;
-show tables;
 
 create table ferramentas(
 	id int not null primary key auto_increment,

@@ -1,6 +1,9 @@
-module.exports = function(application){ 
-	// get do Express serve para passar a rota da url
-	application.get('/', function(request, response){
-		response.render("home/index")
-	});
-};
+const express = require('express');
+const router = express.Router();
+
+//arrow function
+router.get('/', (req, res) => {
+	res.render("home/index");
+});
+
+module.exports = router;

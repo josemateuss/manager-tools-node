@@ -1,18 +1,15 @@
-//var dbConnection = require('../../settings/dbConnection');
+const express = require('express');
+const connection = require('../helpers/dbConnection');
+const FerramentasDAO = require('../models/FerramentasDAO');
+const router = express.Router();
 
-module.exports = function(application){
+router.get('/ferramentas', (req, res) => {
 
-	application.get('/ferramentas', function(request, response){ 
+	const model = new FerramentasDAO(connection);
 
-		// como a função recebe application como parâmetro, é possivel acessar a conexão com o BD
-		var connection = application.settings.dbConnection(); //referência que faz a conexão com o banco
-		// acessando a conexão com o BD pelo caminho da aplicação
-		var FerramentasDAO = new application.app.models.FerramentasDAO(connection);
-
-		FerramentasDAO.getFerramentas(function(error, result){
-			response.render("ferramentas/ferramentas", {ferramentas : result})
-		});
-
-		//connection.query('select * from ferramentas;', 
+	model.getFerramentas(function (error, result) {
+		res.render("ferramentas/ferramentas", { ferramentas: result })
 	});
-};
+});
+
+module.exports = router;

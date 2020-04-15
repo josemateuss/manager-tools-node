@@ -1,6 +1,6 @@
-var mysql = require('mysql');
+const mysql = require('mysql');
 
-var connectionMySQL = function() {
+const connectionMySQL = function() {
 	return mysql.createConnection({
 		host : 'localhost',
 		user : 'root',
@@ -9,8 +9,6 @@ var connectionMySQL = function() {
 	});
 };
 	
-module.exports = function() {
-	return connectionMySQL;
-};
+module.exports = connectionMySQL;
 
 // exportando apenas a variável para que o servidor não fique criando inúmeras conexões com o banco de dados

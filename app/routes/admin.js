@@ -1,18 +1,20 @@
-module.exports = function(application){
-	application.get('/cadastrar-ferramentas', function(request, response){
-		response.render("admin/form_add_ferramentas");
+const express = require('express');
+const connection = require('../helpers/dbConnection');
+const FerramentasDAO = require('../models/FerramentasDAO');
+const router = express.Router();
+
+router.get('/cadastrar-ferramentas', (req, res) => {
+
+	res.render("admin/form_add_ferramentas");
+});
+
+router.post('/ferramentas/salvar', (req, res) => {
+	const tool = req.body;
+	const model = new FerramentasDAO(connection);
+	
+	model.salvarFerramenta(tool, (error, result) =>{
+		res.redirect('/ferramentas');
 	});
+});
 
-	application.post('/ferramentas/salvar', function(request, response){
-		var ferramenta = request.body;
-
-		var connection = application.settings.dbConnection(); 
-		var FerramentasDAO = new application.app.models.FerramentasDAO(connection);
-
-		FerramentasDAO.salvarFerramenta(ferramenta, function(error, result){
-			response.redirect('/ferramentas');
-			//response.send(error);
-			//response.render("ferramentas/ferramentas", {ferramentas : result})
-		});
-	});
-};
+module.exports = router;
