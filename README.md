@@ -6,7 +6,6 @@ Sistema para gerenciar o estoque e uso de ferramentas de uma oficina mecânica, 
 * Express
 * EJS
 * MySQL
-* Consign
 * Body-Parser
 
 José Mateus Pereira Santos – [Linkedin](https://www.linkedin.com/in/josé-mateus-937560106/) – mateus.18.santos@gmail.com
